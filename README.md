@@ -1,6 +1,6 @@
 # hollow.rs
 
-Placeholder website for **Hollow Pty Ltd**, served via GitHub Pages at [hollow.rs](https://hollow.rs).
+Placeholder website for **Hollow Technologies Pty Ltd**, served via GitHub Pages at [hollow.rs](https://hollow.rs).
 
 Static site — no build step. Three pages:
 
