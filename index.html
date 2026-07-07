@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hollow — An engineering company</title>
+<meta name="description" content="Hollow Pty Ltd — an engineering company based in Australia.">
+<link rel="icon" href="assets/logo_icon_black.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600&family=Spline+Sans+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  html,body{margin:0}
+  body{
+    --bg:#131210;--fg:#ecebe6;--muted:#8f8c84;--faint:#cdccc5;
+    --line:rgba(255,255,255,.11);--hair:rgba(255,255,255,.22);--frame:rgba(255,255,255,.20);--invert:1;
+    background:#131210;font-family:'Outfit',system-ui,sans-serif;-webkit-font-smoothing:antialiased;
+  }
+  body.theme-light{
+    --bg:#f4f3ef;--fg:#171614;--muted:#8a8780;--faint:#3a3833;
+    --line:rgba(0,0,0,.11);--hair:rgba(0,0,0,.24);--frame:rgba(0,0,0,.28);--invert:0;
+    background:#f4f3ef;
+  }
+  a{color:var(--fg);text-decoration:none;transition:opacity .15s}
+  a:hover{opacity:.55}
+  .tbtn{font:500 11px 'Spline Sans Mono',monospace;letter-spacing:.14em;color:var(--muted);background:transparent;border:1px solid var(--line);border-radius:20px;padding:7px 15px;cursor:pointer;transition:border-color .15s,color .15s}
+  .tbtn:hover{color:var(--fg);border-color:var(--hair)}
+  .pbtn{font:500 10.5px 'Spline Sans Mono',monospace;letter-spacing:.14em;color:var(--fg);background:transparent;border:1px solid var(--hair);padding:10px 16px;cursor:pointer;transition:background .15s,color .15s,border-color .15s;text-decoration:none;display:inline-block}
+  .pbtn:hover{background:var(--fg);color:var(--bg);border-color:var(--fg);opacity:1}
+  .links[data-linkstyle="text"] .pbtn{border-color:transparent;background:transparent;padding:0}
+  .links[data-linkstyle="text"] .pbtn:hover{border-color:transparent;background:transparent;color:var(--fg);opacity:.55}
+  .links[data-linklayout="vertical"]{flex-direction:column;align-items:flex-start;gap:11px}
+  .links[data-linklayout="vertical"][data-linkstyle="text"]{gap:9px}
+  .zt{font:500 9px 'Spline Sans Mono',monospace;color:var(--muted);opacity:.55}
+</style>
+</head>
+<body>
+
+<div style="position:relative;height:100vh;min-height:740px;background:var(--bg);color:var(--fg);overflow:hidden;transition:background .2s,color .2s">
+
+  <!-- drawing-sheet frame -->
+  <div style="position:absolute;inset:18px;border:1.25px solid var(--frame);pointer-events:none"></div>
+  <!-- zone markers -->
+  <div style="position:absolute;top:23px;left:44px;right:44px;display:flex;justify-content:space-between;pointer-events:none"><span class="zt">8</span><span class="zt">7</span><span class="zt">6</span><span class="zt">5</span><span class="zt">4</span><span class="zt">3</span><span class="zt">2</span><span class="zt">1</span></div>
+  <div style="position:absolute;bottom:23px;left:44px;right:44px;display:flex;justify-content:space-between;pointer-events:none"><span class="zt">8</span><span class="zt">7</span><span class="zt">6</span><span class="zt">5</span><span class="zt">4</span><span class="zt">3</span><span class="zt">2</span><span class="zt">1</span></div>
+  <div style="position:absolute;left:24px;top:60px;bottom:60px;display:flex;flex-direction:column;justify-content:space-between;pointer-events:none"><span class="zt">D</span><span class="zt">C</span><span class="zt">B</span><span class="zt">A</span></div>
+  <div style="position:absolute;right:24px;top:60px;bottom:60px;display:flex;flex-direction:column;justify-content:space-between;pointer-events:none"><span class="zt">D</span><span class="zt">C</span><span class="zt">B</span><span class="zt">A</span></div>
+
+  <!-- nav -->
+  <nav style="position:absolute;top:46px;left:64px;right:64px;display:flex;justify-content:flex-end;align-items:center">
+    <div style="display:flex;align-items:center;gap:20px">
+      <span style="font:500 11px 'Spline Sans Mono',monospace;letter-spacing:.16em;color:var(--muted)">AUSTRALIA</span>
+      <button class="tbtn" onclick="toggleTheme()" aria-label="Toggle light and dark">THEME</button>
+    </div>
+  </nav>
+
+  <!-- hero: dimensioned mark -->
+  <div style="position:absolute;top:120px;left:0;right:0;bottom:150px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:36px;pointer-events:none">
+    <div style="position:relative;width:380px;height:320px;color:var(--muted)">
+      <img src="assets/logo_icon_black.svg" alt="" style="position:absolute;left:120px;top:78px;width:130px;display:block;opacity:.95;filter:invert(var(--invert))">
+      <svg viewBox="0 0 380 320" style="position:absolute;inset:0;width:100%;height:100%">
+        <g stroke="currentColor" stroke-width="1" stroke-opacity=".55" fill="none">
+          <!-- vertical dimension (left) -->
+          <line x1="116" y1="78" x2="60" y2="78"/>
+          <line x1="116" y1="226" x2="60" y2="226"/>
+          <line x1="74" y1="78" x2="74" y2="226"/>
+          <!-- horizontal dimension (bottom) -->
+          <line x1="120" y1="230" x2="120" y2="272"/>
+          <line x1="250" y1="230" x2="250" y2="272"/>
+          <line x1="120" y1="258" x2="250" y2="258"/>
+          <!-- leader -->
+          <line x1="250" y1="120" x2="300" y2="96"/>
+          <line x1="300" y1="96" x2="338" y2="96"/>
+        </g>
+        <g fill="currentColor" fill-opacity=".6">
+          <polygon points="70,88 74,78 78,88"/>
+          <polygon points="70,216 74,226 78,216"/>
+          <polygon points="130,254 120,258 130,262"/>
+          <polygon points="240,254 250,258 240,262"/>
+          <circle cx="250" cy="120" r="2"/>
+        </g>
+      </svg>
+      <!-- dimension labels -->
+      <span style="position:absolute;left:20px;top:152px;transform:translateY(-50%) rotate(-90deg);white-space:nowrap;font:500 8.5px/1.5 'Spline Sans Mono',monospace;color:var(--muted);text-align:center">[2.520]<br>64.00</span>
+      <span style="position:absolute;left:120px;width:130px;top:280px;text-align:center;font:500 8.5px/1.5 'Spline Sans Mono',monospace;color:var(--muted)">[2.008]<br>51.00</span>
+      <span style="position:absolute;left:300px;top:82px;font:500 8.5px 'Spline Sans Mono',monospace;letter-spacing:.1em;color:var(--muted)">REV X1</span>
+    </div>
+    <p style="margin:0;font:300 30px/1.35 'Outfit',sans-serif;letter-spacing:.01em;color:var(--fg)">An engineering company.</p>
+  </div>
+
+  <!-- products (bottom-left) -->
+  <div style="position:absolute;left:64px;bottom:56px;display:flex;flex-direction:column;gap:14px">
+    <span style="font:500 9px 'Spline Sans Mono',monospace;letter-spacing:.26em;color:var(--muted)">WORK</span>
+    <div class="links" data-linkstyle="button" data-linklayout="horizontal" style="display:flex;gap:12px">
+      <a class="pbtn" href="plate-connect.html">PLATE + CONNECT</a>
+      <a class="pbtn" href="drive.html">DRIVE</a>
+    </div>
+  </div>
+
+  <!-- title block (bottom-right) -->
+  <div style="position:absolute;right:64px;bottom:56px;width:296px;border:1px solid var(--frame)">
+    <div style="padding:9px 13px;border-bottom:1px solid var(--frame);font:600 12px 'Outfit',sans-serif;letter-spacing:.02em;color:var(--fg)">HOLLOW PTY LTD</div>
+    <div style="display:flex;border-bottom:1px solid var(--frame)">
+      <span style="padding:7px 13px;border-right:1px solid var(--frame);font:500 9px 'Spline Sans Mono',monospace;letter-spacing:.14em;color:var(--muted);width:52px">TITLE</span>
+      <span style="padding:7px 13px;flex:1;font:500 9px 'Spline Sans Mono',monospace;letter-spacing:.14em;color:var(--fg)">PRESENCE</span>
+    </div>
+    <div style="display:flex;border-bottom:1px solid var(--frame)">
+      <span style="padding:7px 13px;border-right:1px solid var(--frame);font:500 9px 'Spline Sans Mono',monospace;letter-spacing:.1em;color:var(--muted);flex:1">SIZE&nbsp;&nbsp;D</span>
+      <span style="padding:7px 13px;border-right:1px solid var(--frame);font:500 9px 'Spline Sans Mono',monospace;letter-spacing:.1em;color:var(--muted);flex:1">SCALE&nbsp;&nbsp;1:1</span>
+      <span style="padding:7px 13px;font:500 9px 'Spline Sans Mono',monospace;letter-spacing:.1em;color:var(--muted);flex:1.2">SHEET 1 OF 1</span>
+    </div>
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:7px 13px">
+      <span style="font:500 9px 'Spline Sans Mono',monospace;letter-spacing:.08em;color:var(--muted)">ABN 00 000 000 000</span>
+      <a href="mailto:hello@hollow.au" style="font:500 9px 'Spline Sans Mono',monospace;letter-spacing:.08em;color:var(--fg)">hello@hollow.au</a>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  function toggleTheme(){
+    var light=document.body.classList.toggle('theme-light');
+    try{localStorage.setItem('hollow-theme',light?'light':'dark')}catch(e){}
+  }
+  (function(){try{if(localStorage.getItem('hollow-theme')==='light')document.body.classList.add('theme-light')}catch(e){}})();
+</script>
+</body>
+</html>
