@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Plate + Connect — Hollow</title>
-<meta name="description" content="Plate + Connect — a connected system by Hollow Technologies Pty Ltd.">
-<link rel="icon" href="assets/logo_icon_black.svg">
+<title>Drive — Hollow</title>
+<meta name="description" content="Drive — motor control by Hollow Technologies Pty Ltd.">
+<link rel="icon" href="/assets/logo_icon_black.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600&family=Spline+Sans+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -47,7 +47,7 @@
 
   <!-- nav -->
   <nav style="position:absolute;top:46px;left:64px;right:64px;display:flex;justify-content:space-between;align-items:center">
-    <a href="index.html" style="display:block"><img src="assets/logo_horizontal_black.svg" alt="Hollow" style="height:51px;display:block;filter:invert(var(--invert))"></a>
+    <a href="/" style="display:block"><img src="/assets/logo_horizontal_black.svg" alt="Hollow" style="height:51px;display:block;filter:invert(var(--invert))"></a>
     <div style="display:flex;align-items:center;gap:20px">
       <span style="font:500 11px 'Spline Sans Mono',monospace;letter-spacing:.16em;color:var(--muted)">AUSTRALIA</span>
       <button class="tbtn" onclick="toggleTheme()" aria-label="Toggle light and dark">THEME</button>
@@ -57,69 +57,73 @@
   <!-- center: name + technical drawing -->
   <div style="position:absolute;top:120px;left:0;right:0;bottom:150px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:34px">
     <div style="text-align:center;display:flex;flex-direction:column;gap:13px">
-      <span style="font:500 11px 'Spline Sans Mono',monospace;letter-spacing:.24em;color:var(--muted)">01 · CONNECTED SYSTEM</span>
-      <h1 style="margin:0;font:300 46px/1 'Outfit',sans-serif;letter-spacing:-.01em;color:var(--fg)">Plate<span style="color:var(--muted)"> + </span>Connect</h1>
+      <span style="font:500 11px 'Spline Sans Mono',monospace;letter-spacing:.24em;color:var(--muted)">02 · MOTOR CONTROL</span>
+      <h1 style="margin:0;font:300 46px/1 'Outfit',sans-serif;letter-spacing:-.01em;color:var(--fg)">Drive</h1>
     </div>
 
-    <div style="position:relative;width:520px;height:250px;color:var(--muted)">
-      <svg viewBox="0 0 520 250" style="position:absolute;inset:0;width:100%;height:100%">
-        <!-- plate outline -->
+    <div style="position:relative;width:520px;height:262px;color:var(--muted)">
+      <svg viewBox="0 0 520 262" style="position:absolute;inset:0;width:100%;height:100%">
+        <!-- board + main features -->
         <g stroke="currentColor" stroke-width="1.4" stroke-opacity=".85" fill="none">
-          <rect x="34" y="52" width="322" height="132" rx="7"/>
-          <rect x="48" y="66" width="294" height="104" rx="4" stroke-opacity=".4"/>
-          <rect x="356" y="104" width="9" height="28" rx="2"/>
+          <rect x="70" y="26" width="260" height="200" rx="6"/>
+          <rect x="118" y="40" width="32" height="12" rx="1.5"/>
+          <rect x="172" y="40" width="32" height="12" rx="1.5"/>
+          <rect x="226" y="40" width="32" height="12" rx="1.5"/>
+          <circle cx="130" cy="170" r="22"/><circle cx="190" cy="170" r="22"/><circle cx="250" cy="170" r="22"/>
+          <rect x="398" y="90" width="62" height="56" rx="11"/>
+          <line x1="460" y1="118" x2="500" y2="118" stroke-width="2.4"/><rect x="500" y="112" width="10" height="12" rx="1.5"/>
         </g>
-        <!-- mounting holes + crosshair -->
+        <g stroke="currentColor" stroke-width="1.1" stroke-opacity=".55" fill="none">
+          <circle cx="130" cy="170" r="13"/><circle cx="190" cy="170" r="13"/><circle cx="250" cy="170" r="13"/>
+          <rect x="256" y="74" width="30" height="30" rx="2"/>
+          <rect x="150" y="98" width="20" height="20" rx="2"/>
+          <rect x="196" y="100" width="14" height="14" rx="2"/>
+        </g>
+        <!-- motor fins + feet -->
+        <g stroke="currentColor" stroke-width="1.1" stroke-opacity=".45" fill="none">
+          <line x1="410" y1="95" x2="410" y2="141"/>
+          <line x1="421" y1="95" x2="421" y2="141"/>
+          <line x1="432" y1="95" x2="432" y2="141"/>
+          <line x1="443" y1="95" x2="443" y2="141"/>
+          <rect x="404" y="146" width="13" height="6" rx="1"/>
+          <rect x="441" y="146" width="13" height="6" rx="1"/>
+        </g>
+        <!-- mounting holes -->
         <g stroke="currentColor" stroke-width="1.1" stroke-opacity=".7" fill="none">
-          <circle cx="58" cy="76" r="6.5"/><circle cx="332" cy="76" r="6.5"/><circle cx="58" cy="160" r="6.5"/><circle cx="332" cy="160" r="6.5"/>
-          <line x1="58" y1="66" x2="58" y2="86"/><line x1="48" y1="76" x2="68" y2="76"/>
-          <line x1="332" y1="66" x2="332" y2="86"/><line x1="322" y1="76" x2="342" y2="76"/>
-          <line x1="58" y1="150" x2="58" y2="170"/><line x1="48" y1="160" x2="68" y2="160"/>
-          <line x1="332" y1="150" x2="332" y2="170"/><line x1="322" y1="160" x2="342" y2="160"/>
+          <circle cx="94" cy="50" r="6.5"/><circle cx="306" cy="50" r="6.5"/><circle cx="94" cy="202" r="6.5"/><circle cx="306" cy="202" r="6.5"/>
+          <line x1="94" y1="40" x2="94" y2="60"/><line x1="84" y1="50" x2="104" y2="50"/>
+          <line x1="306" y1="40" x2="306" y2="60"/><line x1="296" y1="50" x2="316" y2="50"/>
+          <line x1="94" y1="192" x2="94" y2="212"/><line x1="84" y1="202" x2="104" y2="202"/>
+          <line x1="306" y1="192" x2="306" y2="212"/><line x1="296" y1="202" x2="316" y2="202"/>
         </g>
-        <!-- phone (Connect) -->
-        <g stroke="currentColor" stroke-width="1.4" stroke-opacity=".85" fill="none">
-          <rect x="436" y="52" width="62" height="152" rx="15"/>
-          <rect x="443" y="64" width="48" height="128" rx="9" stroke-opacity=".4"/>
-        </g>
-        <g stroke="currentColor" stroke-width="1.1" stroke-opacity=".5" fill="none">
-          <rect x="452" y="98" width="30" height="17" rx="3"/>
-          <line x1="452" y1="128" x2="482" y2="128"/>
-          <line x1="452" y1="140" x2="474" y2="140"/>
-        </g>
-        <g fill="currentColor" fill-opacity=".55">
-          <rect x="456" y="70" width="22" height="5.5" rx="2.75"/>
-          <rect x="457" y="183" width="20" height="3" rx="1.5"/>
-        </g>
-        <!-- BLE link -->
-        <g stroke="currentColor" stroke-width="1.2" stroke-opacity=".55" fill="none" stroke-dasharray="4 4">
-          <path d="M365,118 C400,118 415,124 436,124"/>
+        <!-- 3-phase leads -->
+        <g stroke="currentColor" stroke-width="1.3" stroke-opacity=".6" fill="none">
+          <polyline points="330,92 366,92 366,104 398,104"/>
+          <polyline points="330,116 398,116"/>
+          <polyline points="330,140 366,140 366,128 398,128"/>
         </g>
         <!-- width dimension -->
         <g stroke="currentColor" stroke-width="1" stroke-opacity=".45" fill="none">
-          <line x1="34" y1="196" x2="34" y2="228"/>
-          <line x1="356" y1="196" x2="356" y2="228"/>
-          <line x1="34" y1="218" x2="356" y2="218"/>
+          <line x1="70" y1="230" x2="70" y2="252"/>
+          <line x1="330" y1="230" x2="330" y2="252"/>
+          <line x1="70" y1="243" x2="330" y2="243"/>
         </g>
         <g fill="currentColor" fill-opacity=".55">
-          <polygon points="44,214 34,218 44,222"/>
-          <polygon points="346,214 356,218 346,222"/>
+          <polygon points="80,239 70,243 80,247"/>
+          <polygon points="320,239 330,243 320,247"/>
         </g>
       </svg>
-      <span style="position:absolute;left:34px;width:322px;top:225px;text-align:center;font:500 8.5px/1.5 'Spline Sans Mono',monospace;color:var(--muted)">[XX.XX]<br>DIM. TBD</span>
-      <span style="position:absolute;left:48px;width:294px;top:75px;text-align:center;font:500 8px 'Spline Sans Mono',monospace;letter-spacing:.42em;color:var(--muted)">AUSTRALIA</span>
-      <span style="position:absolute;left:48px;width:294px;top:118px;transform:translateY(-50%);text-align:center;font:600 46px 'Spline Sans Mono',monospace;letter-spacing:.06em;color:var(--fg)">H0LL0W</span>
-      <span style="position:absolute;left:34px;top:36px;font:500 8.5px 'Spline Sans Mono',monospace;letter-spacing:.18em;color:var(--muted)">PLATE</span>
-      <span style="position:absolute;left:432px;top:36px;font:500 8.5px 'Spline Sans Mono',monospace;letter-spacing:.18em;color:var(--muted)">CONNECT</span>
-      <span style="position:absolute;left:388px;top:96px;font:500 8px 'Spline Sans Mono',monospace;letter-spacing:.16em;color:var(--muted)">BLE</span>
+      <span style="position:absolute;left:70px;width:260px;top:250px;text-align:center;font:500 8.5px/1.5 'Spline Sans Mono',monospace;color:var(--muted)">[XX.XX] DIM. TBD</span>
+      <span style="position:absolute;left:398px;width:62px;top:157px;text-align:center;font:500 9px 'Spline Sans Mono',monospace;letter-spacing:.14em;color:var(--muted)">M&nbsp;&nbsp;3~</span>
+      <span style="position:absolute;left:336px;top:76px;font:500 8px 'Spline Sans Mono',monospace;letter-spacing:.16em;color:var(--muted)">3&#216;</span>
     </div>
   </div>
 
   <!-- bottom-left nav -->
   <div class="links" data-linkstyle="button" data-linklayout="horizontal" style="position:absolute;left:64px;bottom:56px;display:flex;align-items:center;gap:16px">
-    <a href="index.html" class="nlink">← INDEX</a>
+    <a href="/" class="nlink">← INDEX</a>
     <span class="sep" style="color:var(--muted);opacity:.4">·</span>
-    <a href="drive.html" class="nlink">DRIVE ↗</a>
+    <a href="/plate-connect/" class="nlink">PLATE + CONNECT ↗</a>
   </div>
 
   <!-- title block -->
@@ -127,15 +131,15 @@
     <div style="padding:9px 13px;border-bottom:1px solid var(--frame);font:600 12px 'Outfit',sans-serif;letter-spacing:.02em;color:var(--fg)">HOLLOW TECHNOLOGIES PTY LTD</div>
     <div style="display:flex;border-bottom:1px solid var(--frame)">
       <span style="padding:7px 13px;border-right:1px solid var(--frame);font:500 9px 'Spline Sans Mono',monospace;letter-spacing:.14em;color:var(--muted);width:52px">TITLE</span>
-      <span style="padding:7px 13px;flex:1;font:500 9px 'Spline Sans Mono',monospace;letter-spacing:.14em;color:var(--fg)">PLATE + CONNECT</span>
+      <span style="padding:7px 13px;flex:1;font:500 9px 'Spline Sans Mono',monospace;letter-spacing:.14em;color:var(--fg)">DRIVE</span>
     </div>
     <div style="display:flex;border-bottom:1px solid var(--frame)">
       <span style="padding:7px 13px;border-right:1px solid var(--frame);font:500 9px 'Spline Sans Mono',monospace;letter-spacing:.1em;color:var(--muted);flex:1">SIZE&nbsp;&nbsp;D</span>
-      <span style="padding:7px 13px;border-right:1px solid var(--frame);font:500 9px 'Spline Sans Mono',monospace;letter-spacing:.1em;color:var(--muted);flex:1">SCALE&nbsp;&nbsp;1:2</span>
+      <span style="padding:7px 13px;border-right:1px solid var(--frame);font:500 9px 'Spline Sans Mono',monospace;letter-spacing:.1em;color:var(--muted);flex:1">SCALE&nbsp;&nbsp;1:1</span>
       <span style="padding:7px 13px;font:500 9px 'Spline Sans Mono',monospace;letter-spacing:.1em;color:var(--muted);flex:1.2">SHEET 1 OF 1</span>
     </div>
     <div style="display:flex;align-items:center;justify-content:space-between;padding:7px 13px">
-      <span style="font:500 9px 'Spline Sans Mono',monospace;letter-spacing:.08em;color:var(--muted)">DWG&nbsp;&nbsp;HC-001</span>
+      <span style="font:500 9px 'Spline Sans Mono',monospace;letter-spacing:.08em;color:var(--muted)">DWG&nbsp;&nbsp;HC-002</span>
       <a href="mailto:hello@hollow.au" style="font:500 9px 'Spline Sans Mono',monospace;letter-spacing:.08em;color:var(--fg)">hello@hollow.au</a>
     </div>
   </div>
