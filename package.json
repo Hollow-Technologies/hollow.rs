@@ -1,0 +1,21 @@
+{
+  "name": "hollow-rs",
+  "type": "module",
+  "version": "0.1.0",
+  "private": true,
+  "packageManager": "pnpm@11.3.0",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "deploy": "astro build && wrangler deploy"
+  },
+  "dependencies": {
+    "@fontsource/outfit": "^5.2.8",
+    "@fontsource/spline-sans-mono": "^5.2.8",
+    "astro": "^7.0.6"
+  },
+  "devDependencies": {
+    "wrangler": "^4.107.0"
+  }
+}

@@ -1,0 +1,149 @@
+---
+// Self-hosted fonts (served from Cloudflare's edge, no Google Fonts request).
+// Static weights chosen to match the original design's usage.
+import '@fontsource/outfit/200.css';
+import '@fontsource/outfit/300.css';
+import '@fontsource/outfit/400.css';
+import '@fontsource/outfit/500.css';
+import '@fontsource/outfit/600.css';
+import '@fontsource/spline-sans-mono/400.css';
+import '@fontsource/spline-sans-mono/500.css';
+import { ClientRouter } from 'astro:transitions';
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>{title}</title>
+<meta name="description" content={description} />
+<link rel="icon" href="/assets/logo_icon_black.svg" />
+<ClientRouter />
+<script is:inline>
+  // Theme lives on <html> so it can be applied before first paint (no flash).
+  function toggleTheme(){
+    var l=document.documentElement.classList.toggle('theme-light');
+    try{localStorage.setItem('hollow-theme',l?'light':'dark')}catch(e){}
+  }
+  function applyTheme(){
+    try{
+      var light=localStorage.getItem('hollow-theme')==='light';
+      document.documentElement.classList.toggle('theme-light',light);
+    }catch(e){}
+  }
+  applyTheme();
+  // Reapply after client-side (view transition) navigations.
+  document.addEventListener('astro:after-swap',applyTheme);
+</script>
+</head>
+<body>
+
+<div class="sheet">
+
+  <!-- drawing-sheet frame -->
+  <div class="frame"></div>
+  <!-- zone markers (decorative; hidden on small screens) -->
+  <div class="zone" style="position:absolute;top:23px;left:44px;right:44px;display:flex;justify-content:space-between;pointer-events:none"><span class="zt">8</span><span class="zt">7</span><span class="zt">6</span><span class="zt">5</span><span class="zt">4</span><span class="zt">3</span><span class="zt">2</span><span class="zt">1</span></div>
+  <div class="zone" style="position:absolute;bottom:23px;left:44px;right:44px;display:flex;justify-content:space-between;pointer-events:none"><span class="zt">8</span><span class="zt">7</span><span class="zt">6</span><span class="zt">5</span><span class="zt">4</span><span class="zt">3</span><span class="zt">2</span><span class="zt">1</span></div>
+  <div class="zone" style="position:absolute;left:24px;top:60px;bottom:60px;display:flex;flex-direction:column;justify-content:space-between;pointer-events:none"><span class="zt">D</span><span class="zt">C</span><span class="zt">B</span><span class="zt">A</span></div>
+  <div class="zone" style="position:absolute;right:24px;top:60px;bottom:60px;display:flex;flex-direction:column;justify-content:space-between;pointer-events:none"><span class="zt">D</span><span class="zt">C</span><span class="zt">B</span><span class="zt">A</span></div>
+
+  <slot />
+
+</div>
+
+</body>
+</html>
+
+<style is:global>
+  :root{
+    --bg:#131210;--fg:#ecebe6;--muted:#8f8c84;--faint:#cdccc5;
+    --line:rgba(255,255,255,.11);--hair:rgba(255,255,255,.22);--frame:rgba(255,255,255,.20);--invert:1;
+    color-scheme:dark;
+  }
+  :root.theme-light{
+    --bg:#f4f3ef;--fg:#171614;--muted:#8a8780;--faint:#3a3833;
+    --line:rgba(0,0,0,.11);--hair:rgba(0,0,0,.24);--frame:rgba(0,0,0,.28);--invert:0;
+    color-scheme:light;
+  }
+  html,body{margin:0;overflow-x:hidden}
+  body{
+    background:var(--bg);color:var(--fg);
+    font-family:'Outfit',system-ui,sans-serif;-webkit-font-smoothing:antialiased;
+    transition:background-color .4s ease,color .4s ease;
+  }
+  .sheet{position:relative;height:100vh;min-height:740px;background:var(--bg);color:var(--fg);overflow:hidden}
+
+  /* Smooth theme cross-fade for everything in the sheet. :where() keeps this at
+     zero specificity so component-specific transitions (buttons) still win. */
+  :where(.sheet, .sheet *){
+    transition:background-color .4s ease,border-color .4s ease,color .4s ease,fill .4s ease,stroke .4s ease;
+  }
+
+  a{color:var(--fg);text-decoration:none;transition:opacity .15s}
+  a:hover{opacity:.55}
+  .tbtn{font:500 11px 'Spline Sans Mono',monospace;letter-spacing:.14em;color:var(--muted);background:transparent;border:1px solid var(--line);border-radius:20px;padding:7px 15px;cursor:pointer;transition:border-color .15s,color .15s}
+  .tbtn:hover{color:var(--fg);border-color:var(--hair)}
+  .zt{font:500 9px 'Spline Sans Mono',monospace;color:var(--muted);opacity:.55}
+
+  /* layout regions (desktop: fixed drawing-sheet positions) */
+  .frame{position:absolute;inset:18px;border:1.25px solid var(--frame);pointer-events:none}
+  .nav{position:absolute;top:46px;left:64px;right:64px;display:flex;align-items:center}
+  .stage{position:absolute;top:120px;left:0;right:0;bottom:150px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:34px;pointer-events:none}
+  .corner-left{position:absolute;left:64px;bottom:56px;display:flex}
+  .titleblock{position:absolute;right:64px;bottom:56px;width:300px;border:1px solid var(--frame)}
+  .drawing{position:relative;color:var(--muted);width:calc(var(--w) * 1px);height:calc(var(--h) * 1px)}
+  .h-title{margin:0;font:300 46px/1 'Outfit',sans-serif;letter-spacing:-.01em;color:var(--fg)}
+  .tagline{margin:0;font:300 30px/1.35 'Outfit',sans-serif;letter-spacing:.01em;color:var(--fg)}
+
+  /* landing product links */
+  .pbtn{font:500 10.5px 'Spline Sans Mono',monospace;letter-spacing:.14em;color:var(--fg);background:transparent;border:1px solid var(--hair);padding:10px 16px;cursor:pointer;transition:background .15s,color .15s,border-color .15s;text-decoration:none;display:inline-block}
+  .pbtn:hover{background:var(--fg);color:var(--bg);border-color:var(--fg);opacity:1}
+  .links[data-linkstyle="text"] .pbtn{border-color:transparent;background:transparent;padding:0}
+  .links[data-linkstyle="text"] .pbtn:hover{border-color:transparent;background:transparent;color:var(--fg);opacity:.55}
+
+  /* subpage nav links */
+  .nlink{font:500 10.5px 'Spline Sans Mono',monospace;letter-spacing:.14em;color:var(--muted)}
+  .nlink:hover{color:var(--fg);opacity:1}
+  .links[data-linkstyle="button"] .nlink{border:1px solid var(--hair);padding:9px 14px;transition:border-color .15s,color .15s}
+  .links[data-linkstyle="button"] .nlink:hover{border-color:var(--fg);color:var(--fg);opacity:1}
+  .links[data-linkstyle="button"] .sep{display:none}
+
+  .links[data-linklayout="vertical"]{flex-direction:column;align-items:flex-start;gap:11px}
+  .links[data-linklayout="vertical"][data-linkstyle="text"]{gap:9px}
+  .links[data-linklayout="vertical"] .sep{display:none}
+
+  /* ---- mobile / narrow: reflow the sheet into a vertical stack ---- */
+  @media (max-width:720px){
+    .sheet{height:auto;min-height:100dvh;overflow:visible;overflow-x:clip;box-sizing:border-box;display:flex;flex-direction:column;gap:30px;padding:58px 22px 30px}
+    .frame{inset:9px}
+    .zone{display:none !important}
+    .nav{position:static}
+    .nav img{height:40px}
+    .stage{position:static;flex:1 0 auto;gap:26px}
+    .corner-left{position:static;align-self:center;justify-content:center}
+    .corner-left.work{flex-direction:column;align-items:center;text-align:center}
+    .titleblock{position:static;width:100%;max-width:360px;align-self:center}
+    /* scale each drawing as a unit so its pinned labels stay aligned */
+    .drawing{transform:scale(var(--s,.8));transform-origin:top center;height:calc(var(--h) * var(--s,.8) * 1px)}
+    .d-wide{--s:.62}
+    .h-title{font-size:34px}
+    .tagline{font-size:22px}
+  }
+  @media (max-width:380px){
+    .drawing{--s:.7}
+    .d-wide{--s:.5}
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    *,*::before,*::after{transition:none !important;animation:none !important}
+  }
+</style>
