@@ -1,0 +1,14 @@
+# build output
+dist/
+# dependencies
+node_modules/
+# generated types
+.astro/
+# environment
+.dev.vars
+.wrangler/
+# logs
+npm-debug.log*
+pnpm-debug.log*
+# os
+.DS_Store

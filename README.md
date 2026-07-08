@@ -1,13 +1,33 @@
 # hollow.rs
 
-Placeholder website for **Hollow Technologies Pty Ltd**, served via GitHub Pages at [hollow.rs](https://hollow.rs).
+Website for **Hollow Technologies Pty Ltd**, served at [hollow.rs](https://hollow.rs).
 
-Static site — no build step. Pages use folder/`index.html` structure for
-extensionless URLs:
+Built with [Astro](https://astro.build) (static output) and deployed to
+**Cloudflare Workers Static Assets** — all pages and fonts serve from
+Cloudflare's edge, no third-party CDN.
 
-- `index.html` — landing / index (`/`)
-- `plate-connect/index.html` — Plate + Connect (`/plate-connect`)
-- `drive/index.html` — Drive (`/drive`)
+## Develop
 
-Design imported from the "Hollow Engineering Website Redesign" Claude Design project.
-This is a temporary presence until the site moves to a proper host.
+```sh
+pnpm install
+pnpm dev        # local dev server
+pnpm build      # static build → dist/
+pnpm preview    # preview the built site
+```
+
+## Deploy
+
+Cloudflare builds from Git: **build command** `pnpm build`, **deploy command**
+`npx wrangler deploy`. Config lives in `wrangler.jsonc` (assets-only, serves
+`dist/`). `pnpm deploy` runs both locally.
+
+## Structure
+
+- `src/layouts/DrawingSheet.astro` — shared frame, fonts, theme toggle
+- `src/pages/index.astro` — landing (`/`)
+- `src/pages/plate-connect/index.astro` — Plate + Connect (`/plate-connect`)
+- `src/pages/drive/index.astro` — Drive (`/drive`)
+- `public/assets/` — logo SVGs
+
+Fonts (Outfit, Spline Sans Mono) are self-hosted via `@fontsource`.
+Design source: the "Hollow Engineering Website Redesign" Claude Design project.
