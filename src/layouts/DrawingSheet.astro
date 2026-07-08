@@ -8,6 +8,7 @@ import '@fontsource/outfit/500.css';
 import '@fontsource/outfit/600.css';
 import '@fontsource/spline-sans-mono/400.css';
 import '@fontsource/spline-sans-mono/500.css';
+import '@fontsource/spline-sans-mono/600.css';
 import { ClientRouter } from 'astro:transitions';
 
 interface Props {
@@ -35,7 +36,9 @@ const { title, description } = Astro.props;
   }
   function applyTheme(){
     try{
-      var light=localStorage.getItem('hollow-theme')==='light';
+      var saved=localStorage.getItem('hollow-theme');
+      // No saved choice: follow the OS. Manual toggle (saved) always wins.
+      var light=saved?saved==='light':matchMedia('(prefers-color-scheme: light)').matches;
       document.documentElement.classList.toggle('theme-light',light);
     }catch(e){}
   }
