@@ -135,8 +135,12 @@ const { title, description } = Astro.props;
     .corner-left{position:static;align-self:center;justify-content:center}
     .corner-left.work{flex-direction:column;align-items:center;text-align:center}
     .titleblock{position:static;width:100%;max-width:360px;align-self:center}
-    /* scale each drawing as a unit so its pinned labels stay aligned */
-    .drawing{transform:scale(var(--s,.8));transform-origin:top center;height:calc(var(--h) * var(--s,.8) * 1px)}
+    /* Scale each drawing as a unit so its pinned labels stay aligned with the
+       SVG. Keep the element's intrinsic --w x --h box so the SVG viewBox isn't
+       re-fitted (that would shrink the drawing a second time and desync the
+       HTML labels); claw back the empty space the transform leaves below with a
+       negative margin. */
+    .drawing{transform:scale(var(--s,.8));transform-origin:top center;margin-bottom:calc(var(--h) * (var(--s,.8) - 1) * 1px)}
     .d-wide{--s:.62}
     .h-title{font-size:34px}
     .tagline{font-size:22px}
